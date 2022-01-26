@@ -17,19 +17,23 @@ const btnValues = [
 function App() {
   return (
     <>
-      <header>
-        <p>Calc it easy:</p>
-      </header>
+      <p>Your pocket calculator</p>
       <Wrapper>
         <Screen value='10' />
         <ButtonBox>
-          <Button
-            className=''
-            value='8'
-            onClick={(value) => {
-              console.log('btn clicked', value)
-            }}
-          />
+          {/* Render x buttons based on nr of objects in array btnValues */}
+          {btnValues.flat().map((btn, i) => {
+            return (
+              <Button
+                key={i}
+                className={btn === '=' ? 'equals' : ''}
+                value={btn}
+                onClick={() => {
+                  console.log(`${btn} was clicked`)
+                }}
+              />
+            )
+          })}
         </ButtonBox>
       </Wrapper>
     </>
