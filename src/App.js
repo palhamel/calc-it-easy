@@ -1,9 +1,11 @@
-// import logo from './logo.svg';
-// import './App.css';
+import React, { useState } from 'react'
+
 import Wrapper from './components/Wrapper'
 import Screen from './components/Screen'
 import ButtonBox from './components/ButtonBox'
 import Button from './components/Button'
+
+// import './App.css';
 
 // array for creating buttons:
 const btnValues = [
@@ -15,11 +17,17 @@ const btnValues = [
 ]
 
 function App() {
+  let [calc, setCalc] = useState({
+    sign: '',
+    num: 0,
+    res: 0,
+  })
+  console.log(calc)
   return (
     <>
       <p>Your pocket calculator</p>
       <Wrapper>
-        <Screen value='10' />
+        <Screen value={calc.num ? calc.num : calc.res} />
         <ButtonBox>
           {/* Render x buttons based on nr of objects in array btnValues */}
           {btnValues.flat().map((btn, i) => {
