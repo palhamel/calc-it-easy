@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+// import {numClickHandler} from '../src/utils/Handlers'
+
 import Wrapper from './components/Wrapper'
 import Screen from './components/Screen'
 import ButtonBox from './components/ButtonBox'
@@ -35,7 +37,7 @@ function App() {
     e.preventDefault()
     const value = e.target.innerHTML
 
-    if (removeSpaces(calc.num).length < 16) {
+    if (removeSpaces(calc.num).length < 8) {
       setCalc({
         ...calc,
         num:
@@ -77,10 +79,7 @@ function App() {
 
       setCalc({
         ...calc,
-        res:
-          calc.num === '0' && calc.sign === '/'
-            ? "Can't divide with 0"
-            : math(Number(calc.res), Number(calc.num), calc.sign),
+        res: calc.num === '0' && calc.sign === '/' ? 'Error / 0' : math(Number(calc.res), Number(calc.num), calc.sign),
         sign: '',
         num: 0,
       })
@@ -119,8 +118,8 @@ function App() {
 
   return (
     <>
-      <p>Your pocket calculator</p>
       <Wrapper>
+        {/* <p style={{ color: '#E7E7E7', fontSize: '14px' }}>8-digits Dual Power Calculator</p> */}
         <Screen value={calc.num ? calc.num : calc.res} />
         <ButtonBox>
           {/* Render x buttons based on nr of objects in array btnValues */}

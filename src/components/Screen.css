@@ -1,14 +1,40 @@
 .screen {
-  height: 100px;
+  height: 70px;
   width: 100%;
   margin-bottom: 10px;
+  margin-top: 15px;
   padding: 0 10px;
-  background-color: #99ffecbb;
+  background-color: #c5dcc1;
+  background-image: linear-gradient(-155deg, #44443a 0%, #656f66 100%);
+  box-shadow: 0 -4px 4px -3px rgba(255, 255, 255, 0.3), 5px 0 3px -5px rgba(255, 255, 255, 0.8),
+    0 5px 5px -3px rgba(0, 0, 0, 0.5), -3px 0 3px -1px rgba(0, 0, 0, 0.8), inset 0 -5px 3px -3px rgba(0, 0, 0, 0.5),
+    inset 5px 0 5px -2px rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  color: rgb(0, 0, 0);
+  color: rgb(24, 24, 24);
   font-weight: bold;
+  font-size: 46px;
   box-sizing: border-box;
 }
+
+/* 
+
+.screen {
+  height: 70px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  background-color: #c5dcc1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: rgb(58, 58, 58);
+  font-weight: bold;
+  font-size: 40px;
+  box-sizing: border-box;
+}
+
+*/
