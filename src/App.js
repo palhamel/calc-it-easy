@@ -17,9 +17,9 @@ const btnValues = [
 ]
 
 // take a number, format it into string format and create the space separators
-const toLocaleString = (num) => String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1 ')
+// const toLocaleString = (num) => String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1 ')
 // remove the spaces, convert it to number.
-const removeSpaces = (num) => num.toString().replace(/\s/g, '')
+// const removeSpaces = (num) => num.toString().replace(/\s/g, '')
 
 function App() {
   const [calc, setCalc] = useState({
@@ -33,20 +33,22 @@ function App() {
 
   const numClickHandler = (e) => {
     e.preventDefault()
-    const value = e.target.innerHTML
+    console.log('numClickHandler here!');
+    setCalc(e)
+    // const value = e.target.innerHTML
 
-    if (removeSpaces(calc.num).length < 8) {
-      setCalc({
-        ...calc,
-        num:
-          calc.num === 0 && value === '0'
-            ? '0'
-            : removeSpaces(calc.num) % 1 === 0
-            ? toLocaleString(Number(removeSpaces(calc.num + value)))
-            : toLocaleString(calc.num + value),
-        res: !calc.sign ? 0 : calc.res,
-      })
-    }
+    // if (removeSpaces(calc.num).length < 8) {
+    //   setCalc({
+    //     ...calc,
+    //     num:
+    //       calc.num === 0 && value === '0'
+    //         ? '0'
+    //         : removeSpaces(calc.num) % 1 === 0
+    //         ? toLocaleString(Number(removeSpaces(calc.num + value)))
+    //         : toLocaleString(calc.num + value),
+    //     res: !calc.sign ? 0 : calc.res,
+    //   })
+    // }
   }
 
   // const commaClickHandler = (e) => {
