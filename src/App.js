@@ -114,6 +114,7 @@ function App() {
 
   return (
     <>
+        <h2 style={{ color: 'rgb(169, 169, 169)', fontSize: '24px' }}>I'm outside of Wrapper</h2>
       <Wrapper>
         <p style={{ color: 'rgb(169, 169, 169)', fontSize: '14px' }}>8-digits Dual Power Calculator</p>
         <Screen value={calc.num ? calc.num : calc.res} />
