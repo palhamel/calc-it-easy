@@ -25,7 +25,7 @@ const removeSpaces = (num) => num.toString().replace(/\s/g, '')
 // const fixDecimals = (num) => +num.toFixed(8)
 const fixDecimalsAndNum = (num) => {
   if (num > 9999999999) {
-    return 'num to large'
+    return 'to large'
   } else {
     return +num.toFixed(6)
   }
