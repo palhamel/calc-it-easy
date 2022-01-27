@@ -1,5 +1,5 @@
 // import React, { useState } from 'react'
-import React from 'react';
+import React from 'react'
 
 import Wrapper from './components/Wrapper'
 import Screen from './components/Screen'
@@ -8,13 +8,13 @@ import Button from './components/Button'
 // import './App.css';
 
 // array for creating buttons:
-// const btnValues = [
-//   ['C', '+-', '%', '/'],
-//   [7, 8, 9, 'X'],
-//   [4, 5, 6, '-'],
-//   [1, 2, 3, '+'],
-//   [0, '.', '='],
-// ]
+const btnValues = [
+  ['C', '+-', '%', '/'],
+  [7, 8, 9, 'X'],
+  [4, 5, 6, '-'],
+  [1, 2, 3, '+'],
+  [0, '.', '='],
+]
 
 // take a number, format it into string format and create the space separators
 // const toLocaleString = (num) => String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1 ')
@@ -31,7 +31,6 @@ function App() {
   // console.log(calc)
 
   // Click handlers:
-
 
   // const numClickHandler = (e) => {
   //   e.preventDefault()
@@ -125,7 +124,19 @@ function App() {
         <p style={{ color: 'rgb(169, 169, 169)', fontSize: '14px' }}>8-digits Dual Power Calculator</p>
         <Screen value={'100'} />
         <ButtonBox>
-          <Button />
+          {btnValues.flat().map((btn, i) => {
+            return (
+              <Button
+                key={i}
+                className={btn === '=' ? 'equalBtn' : ''}
+                value={btn}
+                // onClick={() => {
+                //   console.log(`${btn} was clicked`)
+                // }}
+                onClick={console.log('clicked')}
+              />
+            )
+          })}
         </ButtonBox>
       </Wrapper>
     </div>
