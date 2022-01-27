@@ -18,12 +18,19 @@ const btnValues = [
 // take a number, format it into string format and create the space separators
 // const toLocaleString = (num) => String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1 ')
 const toLocaleString = (num) => String(num)
-
 // remove the spaces, convert it to number.
 const removeSpaces = (num) => num.toString().replace(/\s/g, '')
 
 // Limit decimals BUT also drops the trailing zeros.
-const fixDecimals = (num) => +num.toFixed(4)
+// const fixDecimals = (num) => +num.toFixed(8)
+const fixDecimalsAndNum = (num) => {
+  if (num > 9999999999) {
+    return 'num to large'
+  } else {
+    return +num.toFixed(6)
+  }
+}
+// if number is > 11 digits = "to large", else toFixed
 
 function App() {
   const [calc, setCalc] = useState({
@@ -78,7 +85,9 @@ function App() {
       const math = (a, b, sign) => (sign === '+' ? a + b : sign === '-' ? a - b : sign === 'X' ? a * b : a / b)
       setCalc({
         ...calc,
-        res: fixDecimals(calc.num === '0' && calc.sign === '/' ? 'Error / 0' : math(Number(calc.res), Number(calc.num), calc.sign)),
+        res: fixDecimalsAndNum(
+          calc.num === '0' && calc.sign === '/' ? 'Error / 0' : math(Number(calc.res), Number(calc.num), calc.sign)
+        ),
         sign: '',
         num: 0,
       })
