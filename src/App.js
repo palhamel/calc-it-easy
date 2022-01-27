@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-
-// import {numClickHandler} from '../src/utils/Handlers'
-
 import Wrapper from './components/Wrapper'
 import Screen from './components/Screen'
 import ButtonBox from './components/ButtonBox'
 import Button from './components/Button'
-
 // import './App.css';
 
 // array for creating buttons:
@@ -119,7 +115,7 @@ function App() {
   return (
     <>
       <Wrapper>
-        {/* <p style={{ color: '#E7E7E7', fontSize: '14px' }}>8-digits Dual Power Calculator</p> */}
+        <p style={{ color: 'rgb(169, 169, 169)', fontSize: '14px' }}>8-digits Dual Power Calculator</p>
         <Screen value={calc.num ? calc.num : calc.res} />
         <ButtonBox>
           {/* Render x buttons based on nr of objects in array btnValues */}
