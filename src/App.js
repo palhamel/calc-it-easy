@@ -23,6 +23,7 @@ const removeSpaces = (num) => num.toString().replace(/\s/g, '')
 
 // Limit decimals BUT also drops the trailing zeros.
 // const fixDecimals = (num) => +num.toFixed(8)
+// if number is > 11 digits = "to large", else toFixed
 const fixDecimalsAndNum = (num) => {
   if (num > 9999999999) {
     return 'to large'
@@ -30,7 +31,6 @@ const fixDecimalsAndNum = (num) => {
     return +num.toFixed(6)
   }
 }
-// if number is > 11 digits = "to large", else toFixed
 
 function App() {
   const [calc, setCalc] = useState({
@@ -41,7 +41,6 @@ function App() {
   console.log(calc)
 
   // Click handlers:
-
   const numClickHandler = (e) => {
     e.preventDefault()
     const value = e.target.innerHTML
