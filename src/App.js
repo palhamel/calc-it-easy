@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Wrapper from './components/Wrapper'
-// import Screen from './components/Screen'
+import Screen from './components/Screen'
 // import ButtonBox from './components/ButtonBox'
 // import Button from './components/Button'
 // import './App.css';
@@ -123,7 +123,7 @@ function App() {
       </header>
       <Wrapper>
         <p style={{ color: 'rgb(169, 169, 169)', fontSize: '14px' }}>8-digits Dual Power Calculator</p>
-        {/* <Screen value={calc.num ? calc.num : calc.res} /> */}
+        <Screen value={'100'} />
       </Wrapper>
     </div>
   )
