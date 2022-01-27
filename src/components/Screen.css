@@ -13,28 +13,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  color: rgb(24, 24, 24);
-  font-weight: bold;
+  color: rgba(24, 24, 24, 0.78);
+  font-weight: 600;
   font-size: 46px;
   box-sizing: border-box;
 }
-
-/* 
-
-.screen {
-  height: 70px;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 0 10px;
-  background-color: #c5dcc1;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  color: rgb(58, 58, 58);
-  font-weight: bold;
-  font-size: 40px;
-  box-sizing: border-box;
-}
-
-*/
