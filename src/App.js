@@ -1,5 +1,5 @@
-// import React, { useState } from 'react'
-import React from 'react'
+import React, { useState } from 'react'
+// import React from 'react'
 
 import Wrapper from './components/Wrapper'
 import Screen from './components/Screen'
@@ -22,13 +22,12 @@ const btnValues = [
 // const removeSpaces = (num) => num.toString().replace(/\s/g, '')
 
 function App() {
-  // useState:
-  // let [calc, setCalc] = useState({
-  //   sign: '',
-  //   num: 0,
-  //   res: 0,
-  // })
-  // console.log(calc)
+  const [calc, setCalc] = useState({
+    sign: '',
+    num: 0,
+    res: 0,
+  });
+  console.log(calc)
 
   // Click handlers:
 
@@ -122,7 +121,9 @@ function App() {
       </header>
       <Wrapper>
         <p style={{ color: 'rgb(169, 169, 169)', fontSize: '14px' }}>8-digits Dual Power Calculator</p>
-        <Screen value={'100'} />
+        {/* <Screen value={'100'} /> */}
+        <Screen value={calc.num ? calc.num : calc.res} />
+
         <ButtonBox>
           {btnValues.flat().map((btn, i) => {
             return (
@@ -130,10 +131,11 @@ function App() {
                 key={i}
                 className={btn === '=' ? 'equalBtn' : ''}
                 value={btn}
-                // onClick={() => {
-                //   console.log(`${btn} was clicked`)
-                // }}
-                onClick={console.log('clicked')}
+                onClick={() => {
+                  setCalc({})
+                  console.log(`${btn} was clicked`)
+                }}
+                // onClick={console.log('clicked')}
               />
             )
           })}
