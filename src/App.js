@@ -36,23 +36,24 @@ function App() {
   const numClickHandler = (e) => {
     e.preventDefault()
     console.log('numClickHandler here!');
-    setCalc(e)
-    toLocaleString()
-    removeSpaces()
-    // const value = e.target.innerHTML
+    // setCalc(e)
+    // toLocaleString()
+    // removeSpaces()
+    
+    const value = e.target.innerHTML
 
-    // if (removeSpaces(calc.num).length < 8) {
-    //   setCalc({
-    //     ...calc,
-    //     num:
-    //       calc.num === 0 && value === '0'
-    //         ? '0'
-    //         : removeSpaces(calc.num) % 1 === 0
-    //         ? toLocaleString(Number(removeSpaces(calc.num + value)))
-    //         : toLocaleString(calc.num + value),
-    //     res: !calc.sign ? 0 : calc.res,
-    //   })
-    // }
+    if (removeSpaces(calc.num).length < 8) {
+      setCalc({
+        ...calc,
+        num:
+          calc.num === 0 && value === '0'
+            ? '0'
+            : removeSpaces(calc.num) % 1 === 0
+            ? toLocaleString(Number(removeSpaces(calc.num + value)))
+            : toLocaleString(calc.num + value),
+        res: !calc.sign ? 0 : calc.res,
+      })
+    }
   }
 
   // const commaClickHandler = (e) => {
