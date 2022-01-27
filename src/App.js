@@ -3,8 +3,8 @@ import React from 'react';
 
 import Wrapper from './components/Wrapper'
 import Screen from './components/Screen'
-// import ButtonBox from './components/ButtonBox'
-// import Button from './components/Button'
+import ButtonBox from './components/ButtonBox'
+import Button from './components/Button'
 // import './App.css';
 
 // array for creating buttons:
@@ -124,6 +124,9 @@ function App() {
       <Wrapper>
         <p style={{ color: 'rgb(169, 169, 169)', fontSize: '14px' }}>8-digits Dual Power Calculator</p>
         <Screen value={'100'} />
+        <ButtonBox>
+          <Button />
+        </ButtonBox>
       </Wrapper>
     </div>
   )
