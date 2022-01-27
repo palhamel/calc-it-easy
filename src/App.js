@@ -22,6 +22,9 @@ const toLocaleString = (num) => String(num)
 // remove the spaces, convert it to number.
 const removeSpaces = (num) => num.toString().replace(/\s/g, '')
 
+// Limit decimals BUT also drops the trailing zeros.
+const fixDecimals = (num) => +num.toFixed(4)
+
 function App() {
   const [calc, setCalc] = useState({
     sign: '',
@@ -33,7 +36,6 @@ function App() {
   // Click handlers:
 
   const numClickHandler = (e) => {
-    console.log('numClickHandler here!')
     e.preventDefault()
     const value = e.target.innerHTML
 
@@ -54,7 +56,6 @@ function App() {
   const commaClickHandler = (e) => {
     e.preventDefault()
     const value = e.target.innerHTML
-
     setCalc({
       ...calc,
       num: !calc.num.toString().includes('.') ? calc.num + value : calc.num,
@@ -64,7 +65,6 @@ function App() {
   const signClickHandler = (e) => {
     e.preventDefault()
     const value = e.target.innerHTML
-
     setCalc({
       ...calc,
       sign: value,
@@ -76,10 +76,9 @@ function App() {
   const equalsClickHandler = () => {
     if (calc.sign && calc.num) {
       const math = (a, b, sign) => (sign === '+' ? a + b : sign === '-' ? a - b : sign === 'X' ? a * b : a / b)
-
       setCalc({
         ...calc,
-        res: calc.num === '0' && calc.sign === '/' ? 'Error / 0' : math(Number(calc.res), Number(calc.num), calc.sign),
+        res: fixDecimals(calc.num === '0' && calc.sign === '/' ? 'Error / 0' : math(Number(calc.res), Number(calc.num), calc.sign)),
         sign: '',
         num: 0,
       })
@@ -117,10 +116,7 @@ function App() {
   }
 
   return (
-    <div>
-      <header>
-        <p style={{ color: 'rgb(169, 169, 169)', fontSize: '24px' }}>I'm outside of Wrapper</p>
-      </header>
+    <>
       <Wrapper>
         <p style={{ color: 'rgb(169, 169, 169)', fontSize: '14px' }}>8-digits Dual Power Calculator</p>
         <Screen value={calc.num ? calc.num : calc.res} />
@@ -131,7 +127,6 @@ function App() {
                 key={i}
                 className={btn === '=' ? 'equalBtn' : ''}
                 value={btn}
-                // onClick={(value) => numClickHandler(value)}
                 onClick={
                   btn === 'C'
                     ? resetClickHandler
@@ -152,7 +147,7 @@ function App() {
           })}
         </ButtonBox>
       </Wrapper>
-    </div>
+    </>
   )
 }
 
