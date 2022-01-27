@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Wrapper from './components/Wrapper'
-import Screen from './components/Screen'
-import ButtonBox from './components/ButtonBox'
-import Button from './components/Button'
+// import Screen from './components/Screen'
+// import ButtonBox from './components/ButtonBox'
+// import Button from './components/Button'
 // import './App.css';
 
 // array for creating buttons:
@@ -113,43 +113,15 @@ function App() {
   }
 
   return (
-    <>
-        <h2 style={{ color: 'rgb(169, 169, 169)', fontSize: '24px' }}>I'm outside of Wrapper</h2>
+    <div>
+      <header>
+        <p style={{ color: 'rgb(169, 169, 169)', fontSize: '24px' }}>I'm outside of Wrapper</p>
+      </header>
       <Wrapper>
         <p style={{ color: 'rgb(169, 169, 169)', fontSize: '14px' }}>8-digits Dual Power Calculator</p>
-        <Screen value={calc.num ? calc.num : calc.res} />
-        <ButtonBox>
-          {/* Render x buttons based on nr of objects in array btnValues */}
-          {btnValues.flat().map((btn, i) => {
-            return (
-              <Button
-                key={i}
-                className={btn === '=' ? 'equalBtn' : ''}
-                value={btn}
-                // onClick={() => {
-                //   console.log(`${btn} was clicked`)
-                // }}
-                onClick={
-                  btn === 'C'
-                    ? resetClickHandler
-                    : btn === '+-'
-                    ? invertClickHandler
-                    : btn === '%'
-                    ? percentClickHandler
-                    : btn === '='
-                    ? equalsClickHandler
-                    : btn === '/' || btn === 'X' || btn === '-' || btn === '+'
-                    ? signClickHandler
-                    : btn === '.'
-                    ? commaClickHandler
-                    : numClickHandler
-                }
-              />
-            )
-          })}
-        </ButtonBox>
+        {/* <Screen value={calc.num ? calc.num : calc.res} /> */}
       </Wrapper>
-    </>
+    </div>
   )
 }
 
